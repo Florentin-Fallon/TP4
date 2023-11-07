@@ -1,6 +1,6 @@
 import socket
 
-host = '0.0.0.0'
+host = ''
 port = 13337
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -23,7 +23,7 @@ while True:
         print(f"Données reçues du client : {data}")
 
         # On répond au client un truc
-        conn.sendall("Hi mate !")
+        conn.sendall(b"Hi mate !")
 
     except socket.error:
         print("Error Occured.")
