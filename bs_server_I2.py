@@ -5,10 +5,15 @@ port = 13337
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-s.bind((host, port))
-s.listen(1)
-conn, addr = s.accept()
-print(f"Un client vient de se co et son IP c'est {host}")
+
+try:
+    s.bind((host, port))
+    s.listen(1)
+    conn, addr = s.accept()
+    print(f"Un client vient de se co et son IP c'est {host}")
+except socket.error:
+    print("On dirait qu'il y a eu un soucis, déso.")
+    exit(1)
 
 while True:
 

@@ -9,12 +9,12 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
     s.connect((host, port))
-    input("Que veux-tu envoyer au serveur :")
+    message = input("Que veux-tu envoyer au serveur :")
 except:
     print("On dirait qu'il y a eu un soucis, déso.")
+    exit(1)
 
-
-s.sendall(b'Meooooo !')
+s.sendall(message.encode("utf-8"))
 data = s.recv(1024)
 s.close()
 print(f"Le serveur a répondu {repr(data)}")
