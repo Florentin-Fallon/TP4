@@ -13,6 +13,9 @@ try:
 
     if (type(message) != str):
         raise TypeError("Le message doit être une chaîne de caractères.")
+    elif (message != "meo" or message != "waf"):
+        raise ValueError("Le message doit être 'meo' ou 'waf'.")
+    
 except:
     print("On dirait qu'il y a eu un soucis, déso.")
     exit(1)
