@@ -126,8 +126,8 @@ Voici le message client quand il se connecte au serveur :
 ```shell
 [fallonflorentin@localhost TP4]$ python3 bs_client_I2.py
 Connecté avec succès au serveur 192.168.64.37 sur le port 13337
-Que veux-tu envoyer au serveur :salut
-Le serveur a répondu b'Hi mate !'
+Que veux-tu envoyer au serveur :waf
+Le serveur a répondu b'ptdr t ki'
 ```
 
 Voici le "Que veux-tu envoyer au serveur" :
@@ -135,7 +135,7 @@ Voici le "Que veux-tu envoyer au serveur" :
 ```shell
 [fallonflorentin@localhost TP4]$ python3 bs_client_I2.py
 Connecté avec succès au serveur 192.168.64.37 sur le port 13337
-Que veux-tu envoyer au serveur 
+Que veux-tu envoyer au serveur :
 ```
 
 Voici le fichier avec la configue du ***client*** :
@@ -149,15 +149,22 @@ Voici le fichier avec la configue du ***client*** :
 Voici le message client quand il se connecte au serveur :
 
 ```shell
-
+[fallonflorentin@bsserver TP4]$ python3 bs_server_I2.py
+Un client vient de se co et son IP c'est 192.168.64.38
+Données reçues du client : waf
 ```
 
 * réponse adaptative
 
 Voici la configue pour la réponse adaptative :
 
-```
-
+```shell
+if ('meo' in data.decode("utf-8")):
+            conn.sendall("Meo à toi confrère.".encode("utf-8"))
+        elif ('waf' in data.decode("utf-8")):
+            conn.sendall("ptdr t ki".encode("utf-8"))
+        else:
+            conn.sendall("Mes respects humble humain".encode("utf-8"))
 ```
 
 Voici le fichier avec toute la configue du ***serveur*** :
