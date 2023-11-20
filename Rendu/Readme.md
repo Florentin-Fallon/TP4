@@ -190,3 +190,21 @@ ValueError: Le message doit contenir meo ou waf.
 Voici le fichier :
 
 [bs_client_I3.py](bs_client_I3.py)
+
+
+# II. You say dev I say good practices
+
+# 1. Args
+
+# 🌞 bs_server_II1.py
+
+
+
+
+# 2. Logs
+# A. Logs serveur
+
+# 🌞 bs_server_II2A.py
+
+# B. Logs client
+# 🌞 bs_client_II2B.py
