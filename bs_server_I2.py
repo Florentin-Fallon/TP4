@@ -28,7 +28,7 @@ while True:
         print(f"Données reçues du client : {data}")
 
         if ('meo' in data.decode("utf-8")):
-            conn.sendall("Meo à toi confrère.").encode("utf-8")
+            conn.sendall("Meo à toi confrere.").encode("utf-8")
         elif ('waf' in data.decode("utf-8")):
             conn.sendall("ptdr t ki").encode("utf-8")
         else:
