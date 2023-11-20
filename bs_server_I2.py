@@ -8,6 +8,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
     print(f"Un client vient de se co et son IP c'est {host}")
+    s.connect((host, port))
     s.bind((host, port))
     s.listen(1)
     conn, addr = s.accept()
