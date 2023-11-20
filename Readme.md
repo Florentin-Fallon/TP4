@@ -124,27 +124,18 @@ tcp   LISTEN 0      1                   0.0.0.0:13337       0.0.0.0:*      users
 Voici le message client quand il se connecte au serveur :
 
 ```shell
-
-```
-
-Voici le Try except pour avoir si la connexion correctement effectuer :
-
-```shell
-
-```
-
-* le programme doit permettre à l'utilisateur d'envoyer la string qu'il veut au serveur
-
-Voici le input()
-
-```shell
-
+[fallonflorentin@localhost TP4]$ python3 bs_client_I2.py
+Connecté avec succès au serveur 192.168.64.37 sur le port 13337
+Que veux-tu envoyer au serveur :salut
+Le serveur a répondu b'Hi mate !'
 ```
 
 Voici le "Que veux-tu envoyer au serveur" :
 
 ```shell
-
+[fallonflorentin@localhost TP4]$ python3 bs_client_I2.py
+Connecté avec succès au serveur 192.168.64.37 sur le port 13337
+Que veux-tu envoyer au serveur 
 ```
 
 Voici le fichier avec la configue du ***client*** :
