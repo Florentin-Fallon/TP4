@@ -8,7 +8,6 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
     print(f"Un client vient de se co et son IP c'est {host}")
-    s.connect((host, port))
     s.bind((host, port))
     s.listen(1)
     conn, addr = s.accept()
@@ -29,11 +28,11 @@ while True:
         print(f"Données reçues du client : {data}")
 
         if ('meo' in data.decode("utf-8")):
-            conn.sendall("Meo à toi confrère.").decode("utf-8")
+            conn.sendall("Meo à toi confrère.").encode("utf-8")
         elif ('waf' in data.decode("utf-8")):
-            conn.sendall("ptdr t ki").decode("utf-8")
+            conn.sendall("ptdr t ki").encode("utf-8")
         else:
-            conn.sendall("Mes respects humble humain").decode("utf-8")
+            conn.sendall("Mes respects humble humain").encode("utf-8")
 
         # On répond au client un truc
         conn.sendall(b"Hi mate !")
