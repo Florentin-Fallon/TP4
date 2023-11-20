@@ -1,10 +1,12 @@
 from sys import exit
 import socket
+import re
 
 host = '192.168.64.37'
 port = 13337
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+regex = re.compile(r"meo|waf")
 
 try:
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
@@ -13,8 +15,8 @@ try:
 
     if (type(message) != str):
         raise TypeError("Le message doit être une chaîne de caractères.")
-    elif (message != "meo" or message != "waf"):
-        raise ValueError("Le message doit être 'meo' ou 'waf'.")
+    if not regex.search(message):
+        raise ValueError("Le message doit contenir 'meo' ou 'waf'.")
     
 except:
     print("On dirait qu'il y a eu un soucis, déso.")
