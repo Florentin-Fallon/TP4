@@ -28,12 +28,12 @@ while True:
         # On affiche dans le terminal les données reçues du client
         print(f"Données reçues du client : {data}")
 
-        if data == 'meo':
-            print("Meo à toi confrère")
-        elif data == 'waf':
-            print("ptdr t ki")
+        if ('meo' in data.decode("utf-8")):
+            conn.sendall("Meo à toi confrère.")
+        elif ('waf' in data.decode("utf-8")):
+            conn.sendall("ptdr t ki")
         else:
-            print("Mes respects humble humain")
+            conn.sendall("Mes respects humble humain")
 
         # On répond au client un truc
         conn.sendall(b"Hi mate !")
