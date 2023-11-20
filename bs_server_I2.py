@@ -25,7 +25,7 @@ while True:
         if not data: break
 
         # On affiche dans le terminal les données reçues du client
-        print(f"Données reçues du client : {data}")
+        print(f"Données reçues du client : {data.decode('utf-8')}")
 
         if ('meo' in data.decode("utf-8")):
             conn.sendall("Meo à toi confrère.").encode("utf-8")
