@@ -15,6 +15,13 @@ except socket.error:
     print("On dirait qu'il y a eu un soucis, déso.")
     exit(1)
 
+if host == 'meo':
+    print("Meo à toi confrère")
+elif host == 'waf':
+    print("ptdr t ki")
+else:
+    print("Mes respects humble humain")
+
 while True:
 
     try:

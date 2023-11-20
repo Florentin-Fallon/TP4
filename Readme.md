@@ -119,21 +119,74 @@ tcp   LISTEN 0      1                   0.0.0.0:13337       0.0.0.0:*      users
 
 # 🌞 bs_client_I2.py
 
+* retour visuel
 
+Voici le message client quand il se connecte au serveur :
 
+```shell
 
+```
+
+Voici le Try except pour avoir si la connexion correctement effectuer :
+
+```shell
+
+```
+
+* le programme doit permettre à l'utilisateur d'envoyer la string qu'il veut au serveur
+
+Voici le input()
+
+```shell
+
+```
+
+Voici le "Que veux-tu envoyer au serveur" :
+
+```shell
+
+```
+
+Voici le fichier avec la configue du ***client*** :
+
+[bs_client_I2.py](bs_client_I2.py)
 
 # 🌞 bs_server_I2.py
 
+* retour visuel
 
+Voici le message client quand il se connecte au serveur :
 
+```shell
 
+```
 
+* réponse adaptative
+
+Voici la configue pour la réponse adaptative :
+
+```
+
+```
+
+Voici le fichier avec toute la configue du ***serveur*** :
+
+[bs_serveur_I2.py](bs_serveur_I2.py)
 
 # 3. You say client I hear control
 
 # 🌞 bs_client_I3.py
 
+* vérifier que...
 
+```
 
+```
 
+Voici la méthode native ***Type*** :
+
+```
+
+```
+
+Voici 
