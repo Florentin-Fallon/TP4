@@ -177,14 +177,16 @@ Voici le fichier avec toute la configue du ***serveur*** :
 
 * vérifier que...
 
+```shell
+[fallonflorentin@localhost TP4]$ python3 bs_client_I3.py
+Connecté avec succès au serveur 192.168.64.37 sur le port 13337
+Que veux-tu envoyer au serveur :salut
+Traceback (most recent call last):
+  File "/home/fallonflorentin/TP4/bs_client_I3.py", line 19, in <module>
+    raise ValueError("Le message doit contenir meo ou waf.")
+ValueError: Le message doit contenir meo ou waf.
 ```
 
-```
+Voici le fichier :
 
-Voici la méthode native ***Type*** :
-
-```
-
-```
-
-Voici 
+[bs_client_I3.py](bs_client_I3.py)
