@@ -35,7 +35,7 @@ while True:
             conn.sendall("Mes respects humble humain").encode("utf-8")
 
         # On répond au client un truc
-        conn.sendall(b"Hi mate !")
+        # conn.sendall(b"Hi mate !")
 
     except socket.error:
         print("Error Occured.")
