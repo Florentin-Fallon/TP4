@@ -17,7 +17,7 @@ try:
         raise TypeError("Le message doit être une chaîne de caractères.")
     if not regex.search(message):
         raise ValueError("Le message doit contenir meo ou waf.")
-except:
+except socket.error:
     print("On dirait qu'il y a eu un soucis, déso.")
     exit(1)
 
