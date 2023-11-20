@@ -6,13 +6,15 @@ port = 13337
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-def Type():
-    print("Type de socket : ", s.type)
-
 try:
     print(f"Connecté avec succès au serveur {host} sur le port {port}")
     s.connect((host, port))
     message = input("Que veux-tu envoyer au serveur :")
+
+    if (type(message) != str):
+        raise TypeError("Le message doit être une chaîne de caractères.")
+    elif:
+        
 except:
     print("On dirait qu'il y a eu un soucis, déso.")
     exit(1)
