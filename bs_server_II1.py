@@ -18,7 +18,7 @@ except socket.error:
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--port', type=int, help='port number', default=13337)
-parser.add_argument('-h','--help',action='help',default=argparse.SUPPRESS  help='show this help message and exit')
+parser.add_argument('-h','--help',action='help',default=argparse.SUPPRESS, help='show this help message and exit')
 
 args = parser.parse_args()
 
