@@ -1,63 +1,49 @@
 import socket
+import sys
 import argparse
-import sys 
-
-host = ''
-port = 13337
-
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-
-try:
-    s.bind((host, port))
-    s.listen(1)
-    conn, addr = s.accept()
-    print(f"Un client vient de se co et son IP c'est {addr[0]}")
-except socket.error:
-    print("On dirait qu'il y a eu un soucis, déso.")
-    exit(1)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-p', '--port', type=int, help='port number', default=13337)
-parser.add_argument('-h','--help',action='help',default=argparse.SUPPRESS, help='show this help message and exit')
-
+parser.add_argument('-p', '--port', action='store')
 args = parser.parse_args()
 
-if args.port < 0 or args.port > 65535:
-    print("ERROR Le port spécifié n'est pas un port possible (de 0 à 65535).")
-    exit(1)
-elif args.port >= 0 and args.port <= 1024:
-    print("ERROR Le port spécifié est un port privilégié. Spécifiez un port au dessus de 1024.")
-    exit(2)
-else:
-    port = args.port
+if args.port:
+    if int(args.port) not in range(0, 65535):
+        print(f"ERROR Le port spécifié n'est pas un port possible (de 0 à 65535)")
+        exit(1)
 
+    if int(args.port) < 1024:
+        print(f"ERROR Le port spécifié est un port privilégié. Spécifiez un port au dessus de 1024.")
+        exit(1)
+
+host = ''
+port = 13337 if not args.port else int(args.port)
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((host, port))
+
+s.listen(1)
+conn, addr = s.accept()
+print(f"Un client vient de se co et son IP c'est {addr}")
 
 while True:
 
     try:
-        # On reçoit 1024 bytes de données
         data = conn.recv(1024)
-
-        # Si on a rien reçu, on continue
         if not data: break
+        print(f"Données reçues du client : {data}")
 
-        # On affiche dans le terminal les données reçues du client
-        print(f"Données reçues du client : {data.decode('utf-8')}")
+        data_str = str(data)
 
-        if ('meo' in data.decode("utf-8")):
-            conn.sendall("Meo à toi confrère.".encode("utf-8"))
-        elif ('waf' in data.decode("utf-8")):
-            conn.sendall("ptdr t ki".encode("utf-8"))
+        if "meo" in data_str:
+            conn.sendall(bytes('Meo à toi confrère.', 'utf-8'))
+        elif "waf" in data_str:
+            conn.sendall(b'ptdr t ki')
         else:
-            conn.sendall("Mes respects humble humain".encode("utf-8"))
+            conn.sendall(b'Mes respects humble humain.')
 
-        # On répond au client un truc
-        conn.sendall(b"Hi mate !")
-
-    except socket.error:
-        print("Error Occured.")
+    except socket.error as e:
+        print(f"Error : {e}")
         break
 
-# On ferme proprement la connexion TCP
 conn.close()
+sys.exit(0)

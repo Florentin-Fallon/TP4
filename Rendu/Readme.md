@@ -193,18 +193,20 @@ Voici le fichier :
 
 
 # II. You say dev I say good practices
-
 # 1. Args
-
 # 🌞 bs_server_II1.py
 
+Voici le fichier avec toutes les commandes qui m'ont bien fais tirer mes cheveux ;)
 
-
+* [bs_server_ii1.py](bs_server_ii1.py)
 
 # 2. Logs
 # A. Logs serveur
-
 # 🌞 bs_server_II2A.py
+
+Voici le fichier avec toutes les commandes pour les logs :
+
+* [bs_server_ii2A.py](bs_server_ii2A.py)
 
 # B. Logs client
 # 🌞 bs_client_II2B.py
