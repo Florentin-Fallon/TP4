@@ -210,3 +210,20 @@ Voici le fichier avec toutes les commandes pour les logs :
 
 # B. Logs client
 # 🌞 bs_client_II2B.py
+
+Voici le fichier avec toutes les commandes utile :
+
+* [bs_client_ii2B.py](bs_client_ii2B.py)
+
+# III. COMPUTE
+# 🌞 bs_client_III.py
+
+Voici le fichier avec toutes les commandes utile : 
+
+[bs_client_III.py](bs_client_III.py)
+
+# 🌞 bs_server_III.py
+
+Voici le fichier avec toutess les commandes utile : 
+
+[bs_server_III.py](bs_server_III.py)
