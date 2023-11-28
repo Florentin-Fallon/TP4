@@ -1,5 +1,6 @@
 import socket
 import argparse
+import sys 
 
 host = ''
 port = 13337
@@ -16,20 +17,38 @@ except socket.error:
     print("On dirait qu'il y a eu un soucis, déso.")
     exit(1)
 
-parser = argparse.ArgumentParser()
-parser.add_argument('-p', '--port', type=int, help='port number', default=13337)
-parser.add_argument('-h','--help',action='help',default=argparse.SUPPRESS, help='show this help message and exit')
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Simple server with port handling.')
 
-args = parser.parse_args()
+    parser.add_argument('-p', '--port', type=int, help='Specify the port to use. Must be an integer between 0 and 65535.')
+    parser.add_argument('-h', '--help', action='store_true', help='Show this help message and exit.')
 
-if args.port < 0 or args.port > 65535:
-    print("ERROR Le port spécifié n'est pas un port possible (de 0 à 65535).")
-    exit(1)
-elif args.port >= 0 and args.port <= 1024:
-    print("ERROR Le port spécifié est un port privilégié. Spécifiez un port au dessus de 1024.")
-    exit(2)
-else:
-    port = args.port
+    return parser.parse_args()
+
+def print_help():
+    print("Usage: python bs_server_II1.py [-p PORT] [-h]")
+    print("\nOptions:")
+    print("  -p, --port Specify the port to use. Must be an integer between 0 and 65535.")
+    print("  -h, --help Show this help message and exit.")
+    sys.exit(0)
+
+def main():
+    args = parse_arguments()
+
+    if args.help:
+        print_help()
+
+    if args.port is not None:
+        if args.port < 0 or args.port > 65535:
+            print("ERROR Le port spécifié n'est pas un port possible (de 0 à 65535).")
+            sys.exit(1)
+        elif args.port <= 1024:
+            print("ERROR Le port spécifié est un port privilégié. Spécifiez un port au-dessus de 1024.")
+            sys.exit(2)
+        else:
+            print(f"Utilisation du port spécifié : {args.port}")
+    else:
+        print("Utilisation du port par défaut : 13337")
 
 
 while True:
